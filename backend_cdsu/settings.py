@@ -26,6 +26,9 @@ SECRET_KEY = '9j19kl((a9cx*n4+zio%6jx1n+o@tz5+mthhi5d_b3nm5y7$m^'
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
+if 'DATABASE_URL' in os.environ:
+    import dj_database_url
+    DATABASES = {'default': dj_database_url.config()}
 # import dj_database_url
 # db_from_env = dj_database_url.config(conn_max_age=500)
 # DATABASES['default'].update(db_from_env)
